@@ -13,3 +13,22 @@
  *= require_tree .
  *= require_self
  */
+@import "./variables";
+
+ body {
+     background-color: $primary-background;
+     color: $text-primary;
+
+     input {
+         background-color: $secondary-background;
+         color: $text-primary;
+     }
+
+     a {
+         color: $primary;
+
+         :hover {
+             color: $action-hover;
+         }
+     }
+ }
