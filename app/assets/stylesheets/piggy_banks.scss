@@ -1,0 +1,37 @@
+// Place all the styles related to the PiggyBanks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+div.piggy {
+    form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card {
+        display: grid;
+        grid-template-areas: 
+            "amount actions" 
+            "name name";
+        border: solid 1px white;
+        .amount {
+            display: grid;
+            grid-area: amount;
+            font-size: 2rem;
+            padding-top: 1rem;
+            padding-left: 1rem;
+        }
+        .actions {
+            display: grid;
+            grid-area: actions;
+            padding-top: 0.5rem;
+        }
+        .name {
+            display: grid;
+            grid-area: name;
+            font-size: 1rem;
+            padding-bottom: 1rem;
+            padding-left: 1rem;
+        }
+    }
+}

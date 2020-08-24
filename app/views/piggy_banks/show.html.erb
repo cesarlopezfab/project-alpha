@@ -1,0 +1,15 @@
+<div class="piggy">
+    <p>
+        <strong>Name:</strong>
+        <%= @piggy_bank.name %>
+    </p>
+
+    <p>
+        <strong>Amount:</strong>
+        <%= @piggy_bank.amount %>
+    </p>
+
+</div>
+
+<%= link_to 'Edit', edit_piggy_bank_path(@piggy_bank) %> |
+<%= link_to 'Back', piggy_banks_path %>

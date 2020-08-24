@@ -1,0 +1,20 @@
+<div class="piggy">
+
+    <h1>Piggy Banks</h1>
+
+    <% @piggy_banks.each do |piggy_bank| %>
+    <div class="card">
+        <span class="name"><%= piggy_bank.name %></span>
+        <span class="amount"><%= number_to_currency(piggy_bank.amount) %></span>
+        <div class="actions">
+            <%= link_to 'Show', piggy_bank %>
+            <%= link_to 'Edit', edit_piggy_bank_path(piggy_bank) %>
+            <%= link_to 'Destroy', piggy_bank, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+    </div>
+    <% end %>
+
+    <br>
+
+    <%= link_to 'New Piggy Bank', new_piggy_bank_path %>
+</div>
