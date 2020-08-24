@@ -1,4 +1,5 @@
 class PiggyBanksController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_piggy_bank, only: [:show, :edit, :update, :destroy]
 
   # GET /piggy_banks
@@ -24,7 +25,7 @@ class PiggyBanksController < ApplicationController
   # POST /piggy_banks
   # POST /piggy_banks.json
   def create
-    @piggy_bank = PiggyBank.new(piggy_bank_params)
+    @piggy_bank = new_piggy_bank(piggy_bank_params)
 
     respond_to do |format|
       if @piggy_bank.save
@@ -70,5 +71,13 @@ class PiggyBanksController < ApplicationController
     # Only allow a list of trusted parameters through.
     def piggy_bank_params
       params.require(:piggy_bank).permit(:name, :amount)
+    end
+
+    def new_piggy_bank(args)
+      PiggyBank.new(
+        name: args[:name],
+        amount: args[:amount],
+        user: current_user
+      )
     end
 end
