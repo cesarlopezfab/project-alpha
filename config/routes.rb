@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'mockup/index'
   resources :piggy_banks
   get 'private/index'
   devise_for :users

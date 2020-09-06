@@ -1,0 +1,80 @@
+// Place all the styles related to the Mockup controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+@import "./variables";
+@import "include-media";
+
+.container {
+    display: grid;
+    
+    border-radius: 0.8rem;
+    margin-bottom: 0.8rem;
+
+    padding: 1rem;
+    background-color: $other-background;
+
+    @include media("screen", "<=phone") {
+        grid-template-columns: 90% 10%;
+        grid-template-rows: auto;
+        grid-template-areas: 
+            "title score"
+            "diary diary"
+            "meals meals"
+            "expenses weight"
+            ;
+        row-gap: 0.4rem;
+
+        width: 100vw;
+    }
+
+    @include media("screen", ">phone") {
+        grid-template-columns: 15% 70% 15%;
+        grid-template-rows: auto;
+        grid-template-areas: 
+            "day title score"
+            ". diary ."
+            "expenses meals weight";
+        row-gap: 0.4rem;
+    
+    }
+
+    .item {
+        border: solid 1px $highlight-background;
+        padding: 1rem;
+        place-self: center;
+        border-radius: 0.8rem;
+    }
+
+    .title {
+        border: 0px;
+    }
+
+    .score {
+        grid-area: score;
+    }
+    .day {
+        grid-area: day;
+    }
+    .diary {
+        border: 0px;
+        grid-area: diary;
+    }
+    .meals {
+        border: 0px;
+        grid-area: meals;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 0.4rem;
+        
+        div {
+            place-self: center;
+        }
+    }
+    .expenses {
+        grid-area: expenses;
+    }
+    .weight {
+        grid-area: weight;
+    }
+}
+
